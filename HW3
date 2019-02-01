@@ -1,0 +1,10 @@
+
+def f(d1):
+    d2 = {}
+    e = []
+    for e in d1: 
+        if d1[e] not in d2:
+            d2[d1[e]] = []
+        d2[d1[e]].append(e) 
+    return d2
+print(f({"a": 1, "b": 4, "c": 7, "d": 5, "e": 7}))
