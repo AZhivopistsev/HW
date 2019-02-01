@@ -8,6 +8,7 @@ def f(d1):
         d2[d1[e]].append(e) 
     return d2
 print(f({"a": 1, "b": 4, "c": 7, "d": 5, "e": 7}))
+{1: ['a'], 4: ['b'], 5: ['d'], 7: ['c', 'e']}
 
 
 def f(s):
@@ -25,3 +26,23 @@ def f(s):
     res += call[s[len(s)-1]]
     return res
 print(f("MDXCIXLXI"))
+1640
+
+
+def f(s): 
+    a = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"] 
+    b = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"] 
+    c = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"] 
+    d = ["", "M", "MM", "MMM", "MMMM"] 
+    D = d[s // 1000] 
+    s %= 1000
+    C = c[s // 100] 
+    s %= 100
+    B = b[s // 10]
+    A = a[s % 10] 
+    return A + B + C + D 
+
+print(f(999))
+print(f(1408))
+IXXCCM
+VIIICDM
