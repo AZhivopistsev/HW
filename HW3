@@ -8,3 +8,20 @@ def f(d1):
         d2[d1[e]].append(e) 
     return d2
 print(f({"a": 1, "b": 4, "c": 7, "d": 5, "e": 7}))
+
+
+def f(s):
+    call = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000} 
+    p = call[s[0]]
+    res = 0
+    for letter in range(len(s)):
+        if letter == 0:
+            continue
+        if p >= call[s[letter]]:
+            res += p
+        if p < call[s[letter]]:
+            res -= p
+        p = call[s[letter]]
+    res += call[s[len(s)-1]]
+    return res
+print(f("MDXCIXLXI"))
