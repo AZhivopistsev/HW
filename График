@@ -34,3 +34,35 @@ def inter():
 
 inter()
 
+
+
+
+def inter():
+    #r = int(input('Радиус построения: '))
+    n = int(input('Количество точек: '))
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import math as math
+    #%matplotlib notebook
+    def function(x, y, p):
+        res = 0
+        for i in range(len(y)):
+            p1 = 1; p2 = 1
+            for j in range(len(x)):
+                if x[j] != x[i]:
+                    p1 = p1 * (p - x[j])
+                    p2 = p2 * (x[i] - x[j])
+            res = res + y[i] * p1 / p2
+        return res
+    
+    x = [np.cos(np.pi*(k - 0.5)/n) for k in range(n)]
+    y = [1/(1+25*i**2) for i in x]
+    x2 = np.linspace(np.min(x), np.max(x), 100)
+    y2 = [function(x, y, i) for i in x2]
+    
+    plt.plot(x2, y2)
+    plt.grid()
+    plt.show()
+    return
+
+inter()
